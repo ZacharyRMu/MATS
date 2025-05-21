@@ -1,0 +1,24 @@
+# General 
+*.log
+*.tmp
+*swp
+
+# Build 
+build/
+*.o
+*.out
+*.bin
+*.elf
+
+# python 
+
+__pycache__/
+*.pyc
+
+# VSCode /CLion
+.vscode/
+.idea/
+
+# OS Files 
+.DS_Store
+Thumbs.db
