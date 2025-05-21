@@ -1,1 +1,1 @@
-# Mobile Antenna Tracking System (MATS
+# Mobile Antenna Tracking System (MATS)
