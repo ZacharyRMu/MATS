@@ -21,7 +21,6 @@ MATS (Mobile Antenna Tracking System) is a portable ground station platform desi
     ```bash 
     cd Receiver
     ./install.sh
-
 2. Rotator Subsystem
     - Assemble Mechanical fixture (CAD models in [placeholder]). 
     - Flash motor control firmware to microcontroller. 
