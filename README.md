@@ -20,7 +20,7 @@ MATS (Mobile Antenna Tracking System) is a portable ground station platform desi
     - Run the provided install script to set up SatDump, SDR++, Gpredict, and required libraries. 
     ```bash 
     cd Receiver
-    ./install.sh```
+    ./install.sh
 
 2. Rotator Subsystem
     - Assemble Mechanical fixture (CAD models in [placeholder]). 
