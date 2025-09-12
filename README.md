@@ -20,7 +20,7 @@ MATS (Mobile Antenna Tracking System) is a portable ground station platform desi
     - Run the provided install script to set up SatDump, SDR++, Gpredict, and required libraries. 
     ```bash 
     cd Receiver
-    ./install.sh
+    ./install_setup.sh
 2. Rotator Subsystem
     - Assemble Mechanical fixture (CAD models in [placeholder]). 
     - Flash motor control firmware to microcontroller. 
@@ -35,7 +35,7 @@ MATS (Mobile Antenna Tracking System) is a portable ground station platform desi
 - Results are stored in `/Receiver/Data/` and can be reviewed via the UI.
 
 ## License
-This project is licensed under the GNU General Public License V3.0 (GPL-3.0). You may redistribute and modify it nder the terms of the GPL as published by the Free Software Foundation. 
+This project is licensed under the GNU General Public License V3.0 (GPL-3.0). You may redistribute and modify it under the terms of the GPL as published by the Free Software Foundation. 
 
 ## Acknowledgements & External Software 
 MATS leverages several excelled open-source projects: 
@@ -43,4 +43,5 @@ MATS leverages several excelled open-source projects:
 - [SDR++](https://github.com/AlexandreRouma/SDRPlusPlus) - Software-defined radio receiver. (Licensed under GPL-3.0)
 - [Gpredict](https://github.com/csete/gpredict) - Real-time satellite tracking and orbit protection. (Licensed under GPL-2.0)
 - [VOLK](https://github.com/gnuradio/volk_) - Vector-optimized library of Kernels used by GNU Radio. (Licensed under GPL-3.0)
+
 We extend sincere thanks to these communities for providing the tools that make this project possible. 
