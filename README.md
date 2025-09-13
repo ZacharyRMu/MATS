@@ -1,6 +1,13 @@
 # Mobile Antenna Tracking System (MATS)
 
-![MATS Logo](/docs/images/logo.png)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/MATS_Logo_White.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/images/MATS_Logo_Black.png">
+    <img src="docs/images/MATS_Logo_Black.png" alt="MATS Logo" width="250">
+  </picture>
+</p>
+
 
 ## Overview
 MATS (Mobile Antenna Tracking System) is a portable ground station platform designed to automatically track and recieve data from Low Earth Orbit (LEO) weather satellites. The system integrates: 
