@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "MP2329C")(type "KiCad")(uri "${KIPRJMOD}/KiCADv6/2025-04-28_20-09-07.kicad_sym")(options "")(descr ""))
+)
