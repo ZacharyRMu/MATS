@@ -2,7 +2,7 @@
 *.log
 *.tmp
 *swp
-
+~$*
 # Build 
 build/
 *.o
