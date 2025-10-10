@@ -17,7 +17,7 @@ check_cmd() {
 
   # Try a few common version switches without failing the script
   local out=""
-  for flag in "--version" "-v" "-V"; do
+  for flag in "--version" "-v" "-V" "--v"; do
     if out="$("$cmd" "$flag" 2>&1)" ; then
       # Found a working flag; validate expected patterns (if any)
       local ok=1
