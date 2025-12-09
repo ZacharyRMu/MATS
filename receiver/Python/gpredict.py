@@ -46,8 +46,12 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
 
     addr = writer.get_extra_info('peername')
     print(f"Client connected from {addr}")
-    writer.write(b"rot_i2c_bridge ready\n")
-    await writer.drain()
+    
+    # --- CRITICAL FIX: REMOVED WELCOME MESSAGE ---
+    # Gpredict does not expect a banner. It expects silence until it asks a question.
+    # writer.write(b"rot_i2c_bridge ready\n") 
+    # await writer.drain()
+    # ---------------------------------------------
 
     while True:
         data = await reader.readline()
@@ -63,7 +67,7 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
         if not cmd:
             continue
 
-        c0 = cmd[0].upper()  # normalize command for matching
+        c0 = cmd[0].upper()
 
         # SET POSITION: P <Az> <El>
         if c0 == 'P' and len(cmd) == 3:
@@ -85,15 +89,14 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
         # GET POSITION: p
         elif c0 == 'P' and len(cmd) == 1:
             # Gpredict asks where we are.
+            # Sends strictly "AZ\nEL\n"
             response = f"{current_az:.1f}\n{current_el:.1f}\n"
             writer.write(response.encode())
             await writer.drain()
 
-        # STOP: S  <--- THIS IS THE FIX
+        # STOP: S
         elif c0 == 'S':
             print("Stop command received.")
-            # If you implemented a stop function on Arduino, call it here.
-            # Otherwise, just acknowledging prevents the error.
             writer.write(b"RPRT 0\n")
             await writer.drain()
 
