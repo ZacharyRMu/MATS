@@ -2,7 +2,6 @@
 import asyncio
 import struct
 import time
-
 import board
 import busio
 
@@ -38,7 +37,6 @@ def send_to_arduino(az: float, el: float):
         try:
             i2c.unlock()
         except RuntimeError:
-            # If unlock fails because it wasn't locked, just ignore
             pass
 
 
@@ -84,15 +82,22 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
                 writer.write(b"RPRT -1\n")
             await writer.drain()
 
-        # GET POSITION: p (hamlib uses lowercase 'p', but we normalized to uppercase)
+        # GET POSITION: p
         elif c0 == 'P' and len(cmd) == 1:
             # Gpredict asks where we are.
-            # Echoing last commanded position is fine for open-loop systems.
             response = f"{current_az:.1f}\n{current_el:.1f}\n"
             writer.write(response.encode())
             await writer.drain()
 
-        # QUIT
+        # STOP: S  <--- THIS IS THE FIX
+        elif c0 == 'S':
+            print("Stop command received.")
+            # If you implemented a stop function on Arduino, call it here.
+            # Otherwise, just acknowledging prevents the error.
+            writer.write(b"RPRT 0\n")
+            await writer.drain()
+
+        # QUIT: q
         elif c0 == 'Q':
             break
 
